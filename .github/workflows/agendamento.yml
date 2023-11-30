@@ -6,7 +6,7 @@ name: Agendamento
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '* * * * *'
 
 jobs:
   build:
