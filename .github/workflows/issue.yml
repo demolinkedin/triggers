@@ -1,0 +1,25 @@
+# Crie um pipeline no GitHub Actions para comentar em uma issue recem criada
+
+name: Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Comment
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Boas Vindas ao Projeto!'
+            })
