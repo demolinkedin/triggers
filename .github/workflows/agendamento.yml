@@ -1,0 +1,16 @@
+# Crie um pipeline no GItHub Actions que execute de forma agendada
+# a execução deve ocorrer a cada 1 minuto
+# escreva na tela "Olá, mundo!"
+
+name: Agendamento
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        run: echo "Olá, mundo!"
